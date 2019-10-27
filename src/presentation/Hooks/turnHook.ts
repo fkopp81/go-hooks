@@ -10,7 +10,6 @@ export function useActivePlayer(turnInteractor: TurnInteractor)
   {
     turnInteractor.subject.subscribe((player) =>
     {
-      console.log(player)
       setActivePlayer(player)
     })
   })

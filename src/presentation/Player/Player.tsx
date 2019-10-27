@@ -1,7 +1,7 @@
 import React from "react"
 import { EPlayer } from "../../domain/domainTypes/domainTypes"
 import { TurnInteractor } from "./../../services/interactors/turnInteractor"
-import { useActivePlayer } from './../Hooks/turnHook';
+import { useActivePlayer } from "./../Hooks/turnHook"
 import "./Player.css"
 
 interface IProps
