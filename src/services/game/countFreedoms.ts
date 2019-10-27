@@ -16,6 +16,5 @@ export function countFreedoms(board: Board, group: Group)
             .equal(adjacentCoordinate)))
       .forEach((adjacentCoordinate) => freedomCoordinates
         .push(adjacentCoordinate)))
-  console.log(freedomCoordinates)
   return freedomCoordinates.length
 }
