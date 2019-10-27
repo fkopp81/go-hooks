@@ -10,7 +10,7 @@ export enum EVertical
 
 export enum EPlayer
 {
-  black, white,
+  black = "black", white = "white",
 }
 
 export enum EStone

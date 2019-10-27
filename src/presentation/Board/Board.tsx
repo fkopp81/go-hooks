@@ -2,7 +2,7 @@ import React from "react"
 import { BoardInteractor } from "../../services/interactors/boardInteractor"
 import { Field, FieldBox } from "../Field/Field"
 
-import { IGame } from "./../../services/game";
+import { IGame } from "./../../services/game"
 import "./Board.css"
 
 interface IProps
@@ -12,7 +12,7 @@ interface IProps
 
 export const Board: React.FC<IProps> = (props) =>
 {
-  const interactor = props.game.boardInteractor
+  const interactor = props.game.board
   const fields = interactor.fieldInteractors()
     .map((fieldInteractor, index) =>
       <Field interactor={fieldInteractor} key={index} turn={props.game.turn} />)

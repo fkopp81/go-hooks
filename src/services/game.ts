@@ -1,8 +1,8 @@
-import { Turn } from "../domain/turn"
 import { BoardInteractor } from "./interactors/boardInteractor"
+import { TurnInteractor } from "./interactors/turnInteractor"
 
 export interface IGame
 {
-  boardInteractor: BoardInteractor
-  turn: Turn
+  board: BoardInteractor
+  turn: TurnInteractor
 }

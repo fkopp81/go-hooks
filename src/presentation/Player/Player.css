@@ -1,0 +1,14 @@
+.player {
+  float: left;
+  height: 50px;
+  width: 200px;
+  background-color: lightgrey;
+}
+
+.player.black {
+  background-color: darkgrey;
+}
+
+.player.active {
+  border: 2px solid cyan
+}

@@ -2,7 +2,7 @@ import React from "react"
 import { FieldInteractor } from "../../services/interactors/fieldInteractor"
 
 import { EPlayer, EStone } from "../../domain/domainTypes/domainTypes"
-import { Turn } from "../../domain/turn"
+import { TurnInteractor } from "./../../services/interactors/turnInteractor"
 import { Stone } from "./../Stone/Stone"
 import "./Field.css"
 export const FieldBox = 20
@@ -10,7 +10,7 @@ export const FieldBox = 20
 interface IProps
 {
   interactor: FieldInteractor
-  turn: Turn
+  turn: TurnInteractor
 }
 
 export const Field: React.FC<IProps> = (props) =>
@@ -20,7 +20,7 @@ export const Field: React.FC<IProps> = (props) =>
   {
     if (props.interactor.field.stoneState) return
     props.interactor.field.stoneState =
-      props.turn.player === EPlayer.black ?
+      props.turn.currentPlayer() === EPlayer.black ?
         EStone.black :
         EStone.white
     setStone(props.interactor.field.stoneState)
