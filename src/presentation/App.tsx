@@ -16,7 +16,7 @@ const App: React.FC<IProps> = (props) =>
         <h1>Go Hooks!</h1>
       </header>
       <main className="appMain">
-        <Board boardInteractor={props.boardInteractor} />
+        <Board interactor={props.boardInteractor} />
       </main>
     </div>
   )

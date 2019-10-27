@@ -12,5 +12,22 @@ export class BoardInteractor
     return new FieldInteractor(field)
   }
 
+  public fieldInteractors()
+  {
+    const fieldCount = this.board.size.x * this.board.size.y
+    const fieldInteractorArray = Array<FieldInteractor>(fieldCount)
+    for (let x = 1; x <= this.board.size.x; x++)
+    {
+      for (let y = 1; y <= this.board.size.y; y++)
+      {
+        const index = (x - 1) * this.board.size.y + y
+        const coordinate = new Coordinate(x, y)
+        const field = this.board.field(coordinate)
+        fieldInteractorArray[index] = new FieldInteractor(field)
+      }
+    }
+    return fieldInteractorArray
+  }
+
   public size = () => this.board.size
 }
