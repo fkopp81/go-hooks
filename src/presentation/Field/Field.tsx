@@ -25,6 +25,7 @@ export const Field: React.FC<IProps> = (props) =>
         EStone.white
     setStone(props.interactor.field.stoneState)
     props.turn.end()
+    console.log(props.interactor.findGroup(), props.interactor.countFreedoms())
   }
   const coordinate = props.interactor.field.coordinate
   return <svg

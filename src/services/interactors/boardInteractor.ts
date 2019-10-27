@@ -9,7 +9,7 @@ export class BoardInteractor
   public fieldInteractor(coordinate: Coordinate)
   {
     const field = this.board.field(coordinate)
-    return new FieldInteractor(field)
+    return new FieldInteractor(this.board, field)
   }
 
   public fieldInteractors()
@@ -22,8 +22,9 @@ export class BoardInteractor
       {
         const index = (x - 1) * this.board.size.y + y
         const coordinate = new Coordinate(x, y)
-        const field = this.board.field(coordinate)
-        fieldInteractorArray[index] = new FieldInteractor(field)
+        fieldInteractorArray[index] = this.fieldInteractor(coordinate)
+        // const field = this.board.field(coordinate)
+        // fieldInteractorArray[index] = new FieldInteractor(field)
       }
     }
     return fieldInteractorArray
