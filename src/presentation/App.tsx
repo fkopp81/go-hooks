@@ -1,11 +1,11 @@
 import React from "react"
-import { BoardInteractor } from "../services/interactors/boardInteractor"
+import { IGame } from "./../services/game"
 import "./App.css"
 import { Board } from "./Board/Board"
 
 interface IProps
 {
-  boardInteractor: BoardInteractor
+  game: IGame
 }
 
 const App: React.FC<IProps> = (props) =>
@@ -16,7 +16,7 @@ const App: React.FC<IProps> = (props) =>
         <h1>Go Hooks!</h1>
       </header>
       <main className="appMain">
-        <Board interactor={props.boardInteractor} />
+        <Board game={props.game} />
       </main>
     </div>
   )

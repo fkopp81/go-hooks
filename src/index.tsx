@@ -6,9 +6,9 @@ import App from "./presentation/App"
 import { initialize } from "./services/interactors/initialize"
 import * as serviceWorker from "./serviceWorker"
 
-const boardInteractor = initialize(new Coordinate(9, 9))
+const game = initialize(new Coordinate(9, 9))
 
-ReactDOM.render(<App boardInteractor={boardInteractor} />,
+ReactDOM.render(<App game={game} />,
   document.getElementById("root"))
 
 // If you want your app to work offline and load faster, you can change

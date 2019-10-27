@@ -1,7 +1,8 @@
 import React from "react"
 import { FieldInteractor } from "../../services/interactors/fieldInteractor"
 
-import { EStone } from "../../domain/domainTypes/domainTypes"
+import { EPlayer, EStone } from "../../domain/domainTypes/domainTypes"
+import { Turn } from "../../domain/turn"
 import { Stone } from "./../Stone/Stone"
 import "./Field.css"
 export const FieldBox = 20
@@ -9,25 +10,28 @@ export const FieldBox = 20
 interface IProps
 {
   interactor: FieldInteractor
+  turn: Turn
 }
 
 export const Field: React.FC<IProps> = (props) =>
 {
   const [stone, setStone] = React.useState(props.interactor.field.stoneState)
-  const stoneChangeHandler = () =>
+  const clickHandler = () =>
   {
+    if (props.interactor.field.stoneState) return
     props.interactor.field.stoneState =
-      Math.random() < .5 ?
+      props.turn.player === EPlayer.black ?
         EStone.black :
         EStone.white
     setStone(props.interactor.field.stoneState)
+    props.turn.end()
   }
   const coordinate = props.interactor.field.coordinate
   return <svg
     className="field"
     height={FieldBox}
     width={FieldBox}
-    onClick={stoneChangeHandler}
+    onClick={clickHandler}
     x={coordinate.xIndex() * FieldBox}
     y={coordinate.yIndex() * FieldBox}
   >
