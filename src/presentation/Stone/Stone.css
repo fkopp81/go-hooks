@@ -1,0 +1,7 @@
+.stone .black {
+  fill: black
+}
+
+.stone .white {
+  fill: lightgrey
+}

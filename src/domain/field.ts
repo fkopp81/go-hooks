@@ -1,5 +1,5 @@
 import { Coordinate } from "./coordinate"
-import { EHorizontal, EVertical } from "./domainTypes/domainTypes"
+import { EHorizontal, EStone, EVertical } from "./domainTypes/domainTypes"
 
 export class Field
 {
@@ -7,6 +7,7 @@ export class Field
     public coordinate: Coordinate,
     public horizontalPosition: EHorizontal,
     public verticalPosition: EVertical,
+    public stoneState = EStone.empty,
   ) { }
 }
 

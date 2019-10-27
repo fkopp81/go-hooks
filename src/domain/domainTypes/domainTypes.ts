@@ -8,9 +8,14 @@ export enum EVertical
   top, middle, bottom,
 }
 
+export enum EStone
+{
+  empty = 0, black, white,
+}
+
 export interface IField
 {
-  horizontalPosition: FieldHorizontalType
-  verticalPosition: FieldVerticalType
+  horizontalPosition: EHorizontal
+  verticalPosition: EVertical
 }
 
