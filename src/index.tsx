@@ -6,7 +6,10 @@ import "./index.css"
 import { initialize } from "./services/interactors/initialize"
 import * as serviceWorker from "./serviceWorker"
 
-ReactDOM.render(<App />, document.getElementById("root"))
+const boardInteractor = initialize(new Coordinate(9, 9))
+
+ReactDOM.render(<App boardInteractor={boardInteractor} />,
+  document.getElementById("root"))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
