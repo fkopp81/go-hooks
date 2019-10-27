@@ -5,7 +5,7 @@ export class Board
 {
   private fields: Field[][] = [[]]
 
-  constructor(private size: Coordinate)
+  constructor(public size: Coordinate)
   {
     this.generate(size)
   }

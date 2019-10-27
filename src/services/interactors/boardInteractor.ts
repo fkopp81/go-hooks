@@ -11,4 +11,6 @@ export class BoardInteractor
     const field = this.board.field(coordinate)
     return new FieldInteractor(field)
   }
+
+  public size = () => this.board.size
 }

@@ -1,0 +1,8 @@
+.board {
+  max-height: 90vmin;
+  margin-top: 1vmin;
+}
+
+.board .background {
+  fill: white;
+}
