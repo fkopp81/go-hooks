@@ -1,6 +1,6 @@
 import { Board } from "../../domain/board"
 import { Coordinate } from "../../domain/coordinate"
-import { FieldHorizontalType, FieldVerticalType } from "../../domain/domainTypes/domainTypes"
+import { EHorizontal, EVertical } from "../../domain/domainTypes/domainTypes"
 
 it("generates", () =>
 {
@@ -15,22 +15,22 @@ it("generates", () =>
       expect(coordinate.equal(field.coordinate)).toBeTruthy()
       if (x === 1)
       {
-        expect(field.horizontalPosition).toBe(FieldHorizontalType.left)
+        expect(field.horizontalPosition).toBe(EHorizontal.left)
       }
       else if (x === size.x)
       {
-        expect(field.horizontalPosition).toBe(FieldHorizontalType.right)
+        expect(field.horizontalPosition).toBe(EHorizontal.right)
       }
-      else expect(field.horizontalPosition).toBe(FieldHorizontalType.middle)
+      else expect(field.horizontalPosition).toBe(EHorizontal.middle)
       if (y === 1)
       {
-        expect(field.verticalPosition).toBe(FieldVerticalType.bottom)
+        expect(field.verticalPosition).toBe(EVertical.bottom)
       }
       else if (y === size.y)
       {
-        expect(field.verticalPosition).toBe(FieldVerticalType.top)
+        expect(field.verticalPosition).toBe(EVertical.top)
       }
-      else expect(field.verticalPosition).toBe(FieldVerticalType.middle)
+      else expect(field.verticalPosition).toBe(EVertical.middle)
     }
   }
 })

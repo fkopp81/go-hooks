@@ -1,9 +1,9 @@
-export enum FieldHorizontalType
+export enum EHorizontal
 {
   left, middle, right,
 }
 
-export enum FieldVerticalType
+export enum EVertical
 {
   top, middle, bottom,
 }

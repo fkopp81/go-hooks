@@ -1,4 +1,4 @@
-import { FieldHorizontalType, FieldVerticalType } from "../../domain/domainTypes/domainTypes"
+import { EHorizontal, EVertical } from "../../domain/domainTypes/domainTypes"
 import { Field } from "../../domain/field"
 
 export class FieldInteractor
@@ -6,11 +6,11 @@ export class FieldInteractor
   constructor(public field: Field) { }
 
   public isLeft = () =>
-    this.field.horizontalPosition === FieldHorizontalType.left
+    this.field.horizontalPosition === EHorizontal.left
   public isRight = () =>
-    this.field.horizontalPosition === FieldHorizontalType.right
+    this.field.horizontalPosition === EHorizontal.right
   public isTop = () =>
-    this.field.verticalPosition === FieldVerticalType.top
+    this.field.verticalPosition === EVertical.top
   public isBottom = () =>
-    this.field.verticalPosition === FieldVerticalType.bottom
+    this.field.verticalPosition === EVertical.bottom
 }

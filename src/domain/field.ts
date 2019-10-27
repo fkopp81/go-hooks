@@ -1,22 +1,22 @@
 import { Coordinate } from "./coordinate"
-import { FieldHorizontalType, FieldVerticalType } from "./domainTypes/domainTypes"
+import { EHorizontal, EVertical } from "./domainTypes/domainTypes"
 
 export class Field
 {
   constructor(
     public coordinate: Coordinate,
-    public horizontalPosition: FieldHorizontalType,
-    public verticalPosition: FieldVerticalType,
+    public horizontalPosition: EHorizontal,
+    public verticalPosition: EVertical,
   ) { }
 }
 
 export function fieldFactory(coordinate: Coordinate, boardSize: Coordinate)
 {
-  const horizontalPosition = coordinate.x === 1 ? FieldHorizontalType.left :
-    coordinate.x < boardSize.x ? FieldHorizontalType.middle :
-      FieldHorizontalType.right
-  const verticalPosition = coordinate.y === 1 ? FieldVerticalType.bottom :
-    coordinate.y < boardSize.y ? FieldVerticalType.middle :
-      FieldVerticalType.top
+  const horizontalPosition = coordinate.x === 1 ? EHorizontal.left :
+    coordinate.x < boardSize.x ? EHorizontal.middle :
+      EHorizontal.right
+  const verticalPosition = coordinate.y === 1 ? EVertical.bottom :
+    coordinate.y < boardSize.y ? EVertical.middle :
+      EVertical.top
   return new Field(coordinate, horizontalPosition, verticalPosition)
 }
