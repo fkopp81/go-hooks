@@ -1,8 +1,14 @@
 import React from "react"
+import { BoardInteractor } from "../services/interactors/boardInteractor"
 import "./App.css"
 import logo from "./logo.svg"
 
-const App: React.FC = () =>
+interface IProps
+{
+  boardInteractor: BoardInteractor
+}
+
+const App: React.FC<IProps> = (props) =>
 {
   return (
     <div className="App">
