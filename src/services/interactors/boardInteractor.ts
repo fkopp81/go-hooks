@@ -1,6 +1,6 @@
 import { Board } from "../../domain/board"
 import { Coordinate } from "../../domain/coordinate"
-import { FieldInteractor } from "./fieldInteractor";
+import { FieldInteractor } from "./fieldInteractor"
 
 export class BoardInteractor
 {
