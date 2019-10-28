@@ -2,6 +2,7 @@ import React from "react"
 import { FieldInteractor } from "../../services/interactors/fieldInteractor"
 
 import { EPlayer, EStone } from "../../domain/domainTypes/domainTypes"
+import { Coordinate } from "./../../domain/coordinate"
 import { TurnInteractor } from "./../../services/interactors/turnInteractor"
 import { Stone } from "./../Stone/Stone"
 import "./Field.css"
@@ -10,6 +11,7 @@ export const FieldBox = 20
 interface IProps
 {
   interactor: FieldInteractor
+  onPlay: (coordinate: Coordinate) => EStone
   turn: TurnInteractor
 }
 
@@ -18,13 +20,16 @@ export const Field: React.FC<IProps> = (props) =>
   const [stone, setStone] = React.useState(props.interactor.field.stoneState)
   const clickHandler = () =>
   {
-    if (props.interactor.field.stoneState) return
-    props.interactor.field.stoneState =
-      props.turn.currentPlayer() === EPlayer.black ?
-        EStone.black :
-        EStone.white
-    setStone(props.interactor.field.stoneState)
-    props.turn.end()
+    const newStone = props.onPlay(props.interactor.field.coordinate)
+    if (stone === newStone) return
+    setStone(newStone)
+    // if (props.interactor.field.stoneState) return
+    // props.interactor.field.stoneState =
+    //   props.turn.currentPlayer() === EPlayer.black ?
+    //     EStone.black :
+    //     EStone.white
+    // setStone(props.interactor.field.stoneState)
+    // props.turn.end()
     console.log(props.interactor.findGroup(), props.interactor.countFreedoms())
   }
   const coordinate = props.interactor.field.coordinate

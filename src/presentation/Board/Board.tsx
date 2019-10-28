@@ -15,7 +15,12 @@ export const Board: React.FC<IProps> = (props) =>
   const interactor = props.game.board
   const fields = interactor.fieldInteractors()
     .map((fieldInteractor, index) =>
-      <Field interactor={fieldInteractor} key={index} turn={props.game.turn} />)
+      <Field
+        interactor={fieldInteractor}
+        key={index}
+        onPlay={props.game.game.playAt}
+        turn={props.game.turn}
+      />)
   const size = interactor.size()
   const viewBox = [0, 0, size.x * FieldBox, size.y * FieldBox]
   return <svg className="board" viewBox={viewBox.join(" ")}>

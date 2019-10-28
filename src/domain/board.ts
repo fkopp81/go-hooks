@@ -3,11 +3,19 @@ import { Field, fieldFactory } from "./field"
 
 export class Board
 {
+  public size: Coordinate
   private fields: Field[][] = [[]]
 
-  constructor(public size: Coordinate)
+  constructor(public sizeOrFields: Coordinate | Field[][])
   {
-    this.generate(size)
+    if (Array.isArray(sizeOrFields))
+    {
+      this.fields = sizeOrFields
+      this.size = new Coordinate(this.fields.length, this.fields[0].length)
+      return
+    }
+    this.size = sizeOrFields
+    this.generate(sizeOrFields)
   }
 
   public field(coordinate: Coordinate)
