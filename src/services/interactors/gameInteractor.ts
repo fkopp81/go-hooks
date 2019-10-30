@@ -6,6 +6,7 @@ import { FieldChange } from "../game/fieldChange"
 import { findCapturedGroups } from "../game/findCapturedGroups"
 import { groupAt } from "../game/groupAt"
 import { IPlayers } from './../../domain/domainTypes/domainTypes';
+import { captureGroup } from './../game/captureGroup';
 import { TurnInteractor } from "./turnInteractor"
 
 export class GameInteractor
@@ -35,9 +36,11 @@ export class GameInteractor
     const freedoms = countFreedoms(this.board, group)
     if (freedoms === 0 && !capturedGroups.length) return
     this.fieldChange.change(field, field.stoneState)
-    capturedGroups
-      .forEach((capturedGroup) => this.fieldChange.changeGroup(capturedGroup,
-        EStone.empty))
+    // capturedGroups
+    //   .forEach((capturedGroup) => this.fieldChange.changeGroup(capturedGroup,
+    //     EStone.empty))
+    capturedGroups.forEach((capturedGroup) =>
+      captureGroup(this.fieldChange, capturedGroup, this.players))
     this.turnInteractor.end()
 
     // return field.stoneState

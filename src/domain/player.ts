@@ -10,4 +10,10 @@ export class Player implements IPlayer
 
   public stone = () => this.color === EPlayer.black ?
     EStone.black : EStone.white
+
+  public capture(count: number)
+  {
+    this.captures += count
+    console.log(this)
+  }
 }
