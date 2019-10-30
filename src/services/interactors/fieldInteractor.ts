@@ -26,4 +26,9 @@ export class FieldInteractor
     this.field.verticalPosition === EVertical.top
   public isBottom = () =>
     this.field.verticalPosition === EVertical.bottom
+
+  public play = () =>
+  {
+
+  }
 }

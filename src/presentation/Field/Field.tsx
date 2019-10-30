@@ -2,37 +2,38 @@ import React from "react"
 import { FieldInteractor } from "../../services/interactors/fieldInteractor"
 
 import { EPlayer, EStone } from "../../domain/domainTypes/domainTypes"
+import { FieldChange } from "../../services/game/fieldChange"
 import { Coordinate } from "./../../domain/coordinate"
 import { TurnInteractor } from "./../../services/interactors/turnInteractor"
+import { useFieldChange } from "./../Hooks/useFieldChange";
 import { Stone } from "./../Stone/Stone"
 import "./Field.css"
 export const FieldBox = 20
 
 interface IProps
 {
+  fieldChange: FieldChange,
   interactor: FieldInteractor
-  onPlay: (coordinate: Coordinate) => EStone
+  onPlay: (coordinate: Coordinate) => void
   turn: TurnInteractor
 }
 
 export const Field: React.FC<IProps> = (props) =>
 {
-  const [stone, setStone] = React.useState(props.interactor.field.stoneState)
+  const coordinate = props.interactor.field.coordinate
+
+  // const [stone, setStone] = React.useState(props.interactor.field.stoneState)
+  const fieldState = useFieldChange(coordinate, props.fieldChange,
+    props.interactor.field.stoneState)
+
   const clickHandler = () =>
   {
-    const newStone = props.onPlay(props.interactor.field.coordinate)
-    if (stone === newStone) return
-    setStone(newStone)
-    // if (props.interactor.field.stoneState) return
-    // props.interactor.field.stoneState =
-    //   props.turn.currentPlayer() === EPlayer.black ?
-    //     EStone.black :
-    //     EStone.white
-    // setStone(props.interactor.field.stoneState)
-    // props.turn.end()
-    console.log(props.interactor.findGroup(), props.interactor.countFreedoms())
+    props.onPlay(props.interactor.field.coordinate)
+    // const newStone = props.onPlay(props.interactor.field.coordinate)
+    // if (stone === newStone) return
+    // setStone(newStone)
+    // console.log(props.interactor.findGroup(), props.interactor.countFreedoms())
   }
-  const coordinate = props.interactor.field.coordinate
   return <svg
     className="field"
     height={FieldBox}
@@ -57,6 +58,6 @@ export const Field: React.FC<IProps> = (props) =>
       x2="50%"
       stroke="black"
     />
-    <Stone state={stone} />
+    <Stone state={fieldState} />
   </svg>
 }

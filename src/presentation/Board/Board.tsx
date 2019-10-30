@@ -16,6 +16,7 @@ export const Board: React.FC<IProps> = (props) =>
   const fields = interactor.fieldInteractors()
     .map((fieldInteractor, index) =>
       <Field
+        fieldChange={props.game.fieldChange}
         interactor={fieldInteractor}
         key={index}
         onPlay={props.game.game.playAt}
