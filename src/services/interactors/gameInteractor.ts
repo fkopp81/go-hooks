@@ -5,6 +5,7 @@ import { countFreedoms } from "../game/countFreedoms"
 import { FieldChange } from "../game/fieldChange"
 import { findCapturedGroups } from "../game/findCapturedGroups"
 import { groupAt } from "../game/groupAt"
+import { IPlayers } from './../../domain/domainTypes/domainTypes';
 import { TurnInteractor } from "./turnInteractor"
 
 export class GameInteractor
@@ -12,6 +13,7 @@ export class GameInteractor
   constructor(
     public board: Board,
     public fieldChange: FieldChange,
+    public players: IPlayers,
     public turnInteractor: TurnInteractor) { }
 
   public playAt = (coordinate: Coordinate): void =>

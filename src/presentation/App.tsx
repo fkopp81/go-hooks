@@ -19,11 +19,11 @@ const App: React.FC<IProps> = (props) =>
       </header>
       <main className="appMain">
         <Player
-          color={EPlayer.white}
+          player={props.game.players.white}
           turn={props.game.turn}
         />
         <Player
-          color={EPlayer.black}
+          player={props.game.players.black}
           turn={props.game.turn}
         />
         <Board game={props.game} />

@@ -1,5 +1,6 @@
 import { Board } from "../../domain/board"
 import { Coordinate } from "../../domain/coordinate"
+import { players } from "../../domain/players"
 import { Turn } from "../../domain/turn"
 import { FieldChange } from "../game/fieldChange"
 import { IGame } from "./../game"
@@ -14,11 +15,13 @@ export function initialize(size: Coordinate): IGame
   const turn = new Turn()
   const turnInteractor = new TurnInteractor(turn)
   const fieldChange = new FieldChange(board)
-  const gameInteractor = new GameInteractor(board, fieldChange, turnInteractor)
+  const gameInteractor = new GameInteractor(board, fieldChange, players,
+    turnInteractor)
   return {
     board: boardInteractor,
     fieldChange,
     game: gameInteractor,
+    players,
     turn: turnInteractor,
   }
 }

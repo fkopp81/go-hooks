@@ -24,3 +24,13 @@ export interface IField
   verticalPosition: EVertical
 }
 
+export interface IPlayer
+{
+  color: EPlayer
+}
+
+export interface IPlayers
+{
+  [EPlayer.black]: IPlayer
+  [EPlayer.white]: IPlayer
+}
